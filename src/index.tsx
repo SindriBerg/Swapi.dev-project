@@ -1,14 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter as Router } from "react-router-dom";
+
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { observer } from "mobx-react-lite";
+
+const starWarsYellows = {
+  100: "#e9ca6b",
+};
+
+const theme = extendTheme({
+  colors: {
+    starWarsYellow: starWarsYellows,
+  },
+});
+
+const Index = observer(function Index() {
+  return (
+    <ChakraProvider theme={theme}>
+      <Router>
+        <App />
+      </Router>
+    </ChakraProvider>
+  );
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Index />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
