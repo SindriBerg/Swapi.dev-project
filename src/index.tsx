@@ -9,7 +9,7 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { observer } from "mobx-react-lite";
 
 const starWarsYellows = {
-  100: "#e9ca6b",
+  100: "#ffe919",
 };
 
 const theme = extendTheme({

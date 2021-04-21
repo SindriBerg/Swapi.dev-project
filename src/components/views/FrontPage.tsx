@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Box, Flex, Link, Grid, GridItem, SimpleGrid } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Link,
+  Grid,
+  GridItem,
+  SimpleGrid,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import { observer } from "mobx-react-lite";
 import { NavLink, Route, Switch, useLocation } from "react-router-dom";
 import { APIService } from "../../service";
@@ -31,13 +40,26 @@ export const MyNavLink = observer(function MyNavLink(props: MyNavLinkProps) {
 const TopNavBar = observer(function TopNavBar() {
   return (
     <Flex bgColor="black" justify="space-around" align="center">
+      <MyNavLink to="/" label="Frontpage" />
       <MyNavLink to="/people" label="People" />
-      <MyNavLink to="/movies" label="Movies" />
       <MyNavLink to="/planets" label="Planets" />
-      <MyNavLink to="/starships" label="Starships" />
-      <MyNavLink to="/vehicles" label="Vehicles" />
-      <MyNavLink to="/species" label="Species" />
     </Flex>
+  );
+});
+
+interface FrontPageDisplayProps {}
+export const FrontPageDisplay = observer(function FrontPageDisplay(
+  props: FrontPageDisplayProps
+) {
+  return (
+    <Box>
+      <Image width="100%" src="/frontpagelogo.jpg" />
+      <Box bgColor="black">
+        <Text color="starWarsYellow.100" textAlign="center" fontSize="6xl">
+          Welcome to my swapi.dev project
+        </Text>
+      </Box>
+    </Box>
   );
 });
 
@@ -52,7 +74,7 @@ export const FrontPage = observer(function FrontPage(props: FrontPageProps) {
         <GridItem className="Switch item">
           <Switch>
             <Route exact path="/">
-              Frontpage
+              <FrontPageDisplay />
             </Route>
             <Route exact path="/planets">
               <SVGPlanet />
