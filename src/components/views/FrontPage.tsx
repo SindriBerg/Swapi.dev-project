@@ -53,12 +53,12 @@ export const FrontPageDisplay = observer(function FrontPageDisplay(
 ) {
   return (
     <Box>
-      <Image width="100%" src="/frontpagelogo.jpg" />
       <Box bgColor="black">
         <Text color="starWarsYellow.100" textAlign="center" fontSize="6xl">
           Welcome to my swapi.dev project
         </Text>
       </Box>
+      <Image width="100%" src="/frontpagelogo.jpg" />
     </Box>
   );
 });
