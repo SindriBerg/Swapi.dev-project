@@ -138,8 +138,27 @@ export const PeopleItem = observer(function PeopleItem(props: PeopleItemProps) {
                 General info
               </Heading>
               <Box>
+                {props.data.gender === Gender.NA ? (
+                  <Text textTransform="capitalize">
+                    Gender: Most likely a robot..
+                  </Text>
+                ) : (
+                  <Text textTransform="capitalize">
+                    Gender: {props.data.gender}
+                  </Text>
+                )}
+                <Text textTransform="capitalize">
+                  Weight: {props.data.mass} kgs
+                </Text>
                 <Text textTransform="capitalize">
                   Skin color: {props.data.skin_color}
+                </Text>
+                <Text textTransform="capitalize">
+                  Hair color:{props.data.hair_color}
+                </Text>
+                <Text>Birth year: {props.data.birth_year}</Text>
+                <Text textTransform="capitalize">
+                  Eye color: {props.data.eye_color}
                 </Text>
               </Box>
             </GridItem>
