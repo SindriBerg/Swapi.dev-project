@@ -6,11 +6,12 @@ import { APIService } from "../../service";
 import { People } from "../../models/types";
 import { versions } from "node:process";
 import { PeoplePage } from "./PeoplePage";
+import { SVGPlanet } from "./PlanetRenderer";
 interface MyNavLinkProps {
   to: string;
   label: string;
 }
-const MyNavLink = observer(function MyNavLink(props: MyNavLinkProps) {
+export const MyNavLink = observer(function MyNavLink(props: MyNavLinkProps) {
   const location = useLocation();
   const active = location.pathname === props.to;
   return (
@@ -20,7 +21,7 @@ const MyNavLink = observer(function MyNavLink(props: MyNavLinkProps) {
       justify="center"
       color={active ? "red.400" : "gray.400"}
     >
-      <Link as={NavLink} to={props.to}>
+      <Link textColor="starWarsYellow.100" as={NavLink} to={props.to}>
         {props.label}
       </Link>
     </Flex>
@@ -29,13 +30,13 @@ const MyNavLink = observer(function MyNavLink(props: MyNavLinkProps) {
 
 const TopNavBar = observer(function TopNavBar() {
   return (
-    <Flex bgColor="starWarsYellow.100" justify="space-around" align="center">
+    <Flex bgColor="black" justify="space-around" align="center">
       <MyNavLink to="/people" label="People" />
-      <MyNavLink to="/" label="Movies" />
-      <MyNavLink to="/" label="Planets" />
-      <MyNavLink to="/" label="Starships" />
-      <MyNavLink to="/" label="Vehicles" />
-      <MyNavLink to="/" label="Species" />
+      <MyNavLink to="/movies" label="Movies" />
+      <MyNavLink to="/planets" label="Planets" />
+      <MyNavLink to="/starships" label="Starships" />
+      <MyNavLink to="/vehicles" label="Vehicles" />
+      <MyNavLink to="/species" label="Species" />
     </Flex>
   );
 });
@@ -50,6 +51,12 @@ export const FrontPage = observer(function FrontPage(props: FrontPageProps) {
         </GridItem>
         <GridItem className="Switch item">
           <Switch>
+            <Route exact path="/">
+              Frontpage
+            </Route>
+            <Route exact path="/planets">
+              <SVGPlanet />
+            </Route>
             <Route exact path="/people">
               <PeoplePage />
             </Route>
