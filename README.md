@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Before starting, use `yarn install` to install all dependencies.
+
+The project currentl consists of a frontpage, People page and a Planet page.
+The Planet page uses SVG to render objects with data from the swapi.dev/api... 
+
 ## Available Scripts
 
 In the project directory, you can run:
